@@ -1,0 +1,23 @@
+{
+    "chosenPlayer": "Fasfasfsaf",
+    "playerData": {
+        "Leodreamer": {
+            "gameSettings": {
+                "background": "images/background.bmp",
+                "gameFrame": 165.0,
+                "BGMVolume": 0.196,
+                "FXVolume": 0.25333333333333335
+            },
+            "highScore": 11761
+        },
+        "Fasfasfsaf": {
+            "gameSettings": {
+                "background": "images/background.bmp",
+                "gameFrame": 165.0,
+                "BGMVolume": 0.2986666666666667,
+                "FXVolume": 1.0
+            },
+            "highScore": 792
+        }
+    }
+}
