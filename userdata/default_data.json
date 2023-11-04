@@ -1,0 +1,9 @@
+{
+    "gameSettings": {
+        "background": "images/background.bmp",
+        "gameFrame": 165.0,
+        "BGMVolume": 0.3,
+        "FXVolume": 0.5
+    },
+    "highScore": 0
+}
