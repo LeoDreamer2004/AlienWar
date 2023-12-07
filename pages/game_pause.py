@@ -1,4 +1,4 @@
-from assists.assists import *
+from assists.assists import Button, ShortText, Calculate, ChoosePopup
 
 
 class GamePausePage:
@@ -35,7 +35,9 @@ class GamePausePage:
         # 弹窗
         self.restartPopup = ChoosePopup(ai_game, "Restart?", noMsg="Back")
         self.goMenuPopup = ChoosePopup(
-            ai_game, "Go Back to the Menu?", subtitleMsg="Your game will be saved.", titleSize=37, noMsg="Back")
+            ai_game, "Go Back to the Menu?",
+            subtitleMsg="Your game will be saved.",
+            titleSize=37, noMsg="Back")
 
     def draw_game_pause(self, mouse_pos):
         """画出游戏暂停窗口"""

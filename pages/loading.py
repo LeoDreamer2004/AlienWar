@@ -54,5 +54,7 @@ class LoadingPage:
             self.clock.tick(ai_game.gameFrame)
             time -= 1
             color = int(time / ai_game.gameFrame * 255)
+            if color < 0:
+                color = 0
             ai_game.screen.fill((color, color, color), ai_game.screenRect)
             pygame.display.flip()

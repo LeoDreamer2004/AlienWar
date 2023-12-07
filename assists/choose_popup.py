@@ -1,7 +1,7 @@
 import pygame
-from assists.buttons import Button
-from assists.calculate import Calculate
-from assists.text import ShortText
+from .buttons import Button
+from .calculate import Calculate
+from .text import ShortText
 
 
 class ChoosePopup:

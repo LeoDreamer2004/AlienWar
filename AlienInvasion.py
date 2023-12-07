@@ -14,10 +14,14 @@ from time import sleep
 import pickle
 
 # 自己的运行库
-from assets.assets import *
-from assists.assists import *
-from pages.pages import *
-from stats.stats import *
+from assets.assets import (Bullet, Ship, Alien, Properties, Skills,
+                           Skills_Frozen, Skills_Shield, Skills_Firing,
+                           ExpandAttackRange, StrengthenBullet, DoubleScore)
+from pages.pages import (LoadingPage, Menu, QuitPage, NewGamePage,
+                         IntroductionsPage, SettingsPage, GamePausePage,
+                         CreateUserPage, changeUserPage, LoseGamePage)
+from stats.stats import (Settings, Scoreboard, GameStats,
+                         EasyMode, MediumMode, HardMode)
 
 
 class AlienInvasion:
@@ -164,8 +168,10 @@ class AlienInvasion:
     def save_game(self):
         """保存游戏"""
         try:
-            self.datas = [self.ship, self.stats, self.bullets, self.aliens, self.props,
-                          self.skills, self.settings, self.refreshTime, self.forceRefreshTime]
+            self.datas = [self.ship, self.stats,
+                          self.bullets, self.aliens, self.props,
+                          self.skills, self.settings,
+                          self.refreshTime, self.forceRefreshTime]
         except AttributeError:
             pass
         else:
@@ -401,7 +407,7 @@ class AlienInvasion:
             if result:
                 self.add_user(result)
                 self.subPage = "change_user"
-            elif result == False:
+            elif result is False:
                 self.subPage = "change_user"
 
         elif self.subPage == "rename_user":  # 重命名用户的弹窗
@@ -409,7 +415,7 @@ class AlienInvasion:
             if result:
                 self.rename_user(self.player, result)
                 self.subPage = "change_user"
-            elif result == False:
+            elif result is False:
                 self.subPage = "change_user"
 
     def _check_new_game_selecting_events(self, event: pygame.event.Event):
@@ -429,7 +435,7 @@ class AlienInvasion:
                     self.new_game()
                 elif page.backMenuButton.clicked(mouse_pos):
                     self.page = "menu"
-                    
+
         elif self.subPage == "choose_new_game":
             if event.type == pygame.MOUSEBUTTONDOWN and pygame.mouse.get_pressed()[0]:
                 mouse_pos = pygame.mouse.get_pos()
@@ -611,8 +617,8 @@ class AlienInvasion:
                         self._load_personal_settings()
                 elif page.clearBackgroundButton.clicked(mouse_pos):
                     self.subPage = "choose_clear_background"
-                    
-            elif event.type == pygame.MOUSEBUTTONUP :  # 抬鼠标全部取消活跃状态
+
+            elif event.type == pygame.MOUSEBUTTONUP:  # 抬鼠标全部取消活跃状态
                 for slidebar in page.settingSlidebars:
                     slidebar.active = False
             self._save_settings()
@@ -636,7 +642,7 @@ class AlienInvasion:
                     self.subPage = None
                 elif page.clearBackgroundPopup.get_result(mouse_pos) == -1:
                     self.subPage = None
-                    
+
     # ------------------屏幕
 
     def update_screen(self, mouse_pos):
@@ -724,11 +730,11 @@ class AlienInvasion:
         for prop in self.props.copy():
             if self.ship.rect.colliderect(prop.rect):
                 self.props.remove(prop)
-                if type(prop) == ExpandAttackRange:
+                if isinstance(prop, ExpandAttackRange):
                     self.stats.propsATime = self.settings.propsATime * self.gameFrame
-                if type(prop) == StrengthenBullet:
+                if isinstance(prop, StrengthenBullet):
                     self.stats.propsBTime = self.settings.propsBTime * self.gameFrame
-                if type(prop) == DoubleScore:
+                if isinstance(prop, DoubleScore):
                     self.stats.propsCTime = self.settings.propsCTime * self.gameFrame
 
     # ------------------子弹/炸弹和外星人
@@ -858,7 +864,7 @@ class AlienInvasion:
                 sleep(0.5)
                 self.lose_game()
 
-   # ------------------技能
+    # ------------------技能
 
     def _update_skills(self):
         """更新技能状态"""
@@ -912,7 +918,7 @@ class AlienInvasion:
         self.scoreboard.prep_score(self)
         self.scoreboard.update_high_score(self)
 
-   # ------------------游戏失败
+    # ------------------游戏失败
 
     def lose_game(self):
         """更新输掉游戏的状态"""

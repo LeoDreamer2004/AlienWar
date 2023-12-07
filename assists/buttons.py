@@ -1,5 +1,5 @@
 import pygame
-from assists.calculate import Calculate
+from .calculate import Calculate
 
 
 class Button:

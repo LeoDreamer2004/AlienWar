@@ -1,5 +1,5 @@
 import pygame
-from assets.repickle import repickle
+from .repickle import repickle
 
 
 class Bomb:

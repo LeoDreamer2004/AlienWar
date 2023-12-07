@@ -1,4 +1,4 @@
-from assists.assists import *
+from assists import *
 
 
 class CreateUserPage:
@@ -25,7 +25,7 @@ class CreateUserPage:
 
     def _check_name(self, ai_game, name: str = None):
         """检测名字是否合乎要求，name不填默认为输入的名字，若是返回True，否则返回False"""
-        if name == None:
+        if name is None:
             name = self.name
         if not name:
             self.sameName = False
@@ -39,7 +39,7 @@ class CreateUserPage:
 
     def _new_user_input(self, event: pygame.event.Event):
         """输入用户名字，并更新屏幕"""
-        self.name = Interactions.user_input(event, self.name, limit=14)
+        self.name = Interactions.input_string(event, self.name, maxLen=14)
         self.button.msg = self.name
 
     def draw_new_user_popup(self, mouse_pos):

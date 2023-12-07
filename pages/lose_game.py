@@ -1,4 +1,4 @@
-from assists.assists import *
+from assists.assists import ChoosePopup
 
 
 class LoseGamePage:

@@ -1,5 +1,4 @@
-import pygame
-from assists.assists import *
+from assists.assists import Button, ShortText, LongText
 
 
 class IntroductionsPage:
@@ -29,7 +28,8 @@ class IntroductionsPage:
         """更新文本"""
         self.color = (150, 60, 20)
         self.texts = LongText(
-            ai_game, "strings/introduction.txt", (50, 50), size=27, color=self.color).separate()
+            ai_game, "strings/introduction.txt",
+            (50, 50), size=27, color=self.color).separate()
         self.pages = len(self.texts)
         self.pageText = ShortText(
             ai_game, (170, 680), size=30, color=(150, 30, 30),

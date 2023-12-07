@@ -1,4 +1,4 @@
-from assists.assists import *
+from assists.assists import ShortText, Calculate, Button, ChoosePopup
 
 
 class changeUserPage:
@@ -7,7 +7,8 @@ class changeUserPage:
     def __init__(self, ai_game):
         # 标题文本
         self.changeUserText = ShortText(
-            ai_game, Calculate.add(ai_game.screenRect.center, (0, -210)), "Who are you?", size=50,
+            ai_game, Calculate.add(ai_game.screenRect.center, (0, -210)),
+            "Who are you?", size=50,
             color=(128, 40, 40), bold=True)
         # 按钮
         self.background = Button(
@@ -34,8 +35,12 @@ class changeUserPage:
             position = Calculate.add(
                 ai_game.screenRect.center, (0, -130 + index*height))
             button = Button(
-                ai_game, user, position, width, textSize=25, textColor=(130, 130, 40),
-                buttonColor=(170, 190, 200), highlightColor=(150, 170, 180), edgeColor=False)
+                ai_game, user, position, width,
+                textSize=25,
+                textColor=(130, 130, 40),
+                buttonColor=(170, 190, 200),
+                highlightColor=(150, 170, 180),
+                edgeColor=False)
             self.userButtons.append(button)
         position = Calculate.add(
             ai_game.screenRect.center, (0, -130 + (index+1)*height))
@@ -77,8 +82,10 @@ class changeUserPage:
     def _update_delete_user_popup(self, ai_game):
         """更新删除用户的弹窗"""
         self.deleteUserPopup = ChoosePopup(
-            ai_game, "Delete User?", subtitleMsg=f"Username: {ai_game.player}",
-            yesMsg="Delete", noMsg="Back", backgroundColor=self.background.buttonColor)
+            ai_game, "Delete User?",
+            subtitleMsg=f"Username: {ai_game.player}",
+            yesMsg="Delete", noMsg="Back",
+            backgroundColor=self.background.buttonColor)
 
     def draw_delete_user_popup(self, mouse_pos):
         """画出删除用户的弹窗"""

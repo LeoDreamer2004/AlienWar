@@ -1,3 +1,3 @@
-from stats.settings import *
-from stats.game_stats import GameStats
-from stats.scoreboard import Scoreboard
+from .settings import *
+from .game_stats import GameStats
+from .scoreboard import Scoreboard

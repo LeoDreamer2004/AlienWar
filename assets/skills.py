@@ -1,6 +1,6 @@
 import pygame
-from assets.bomb import Bomb
-from assets.repickle import repickle
+from .bomb import Bomb
+from .repickle import repickle
 from math import radians
 
 

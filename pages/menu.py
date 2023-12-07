@@ -1,7 +1,7 @@
-from assists.assists import *
-from pages.change_user import changeUserPage
-from pages.new_user import CreateUserPage
-
+import pygame
+from assists.assists import (ShortText, Calculate, Button, ChoosePopup)
+from .change_user import changeUserPage
+from .new_user import CreateUserPage
 
 class Menu:
     """主菜单"""
@@ -47,6 +47,9 @@ class Menu:
             self.quitFont.draw_text()
         else:
             ai_game.screen.blit(self.quitImage, self.quitImageRect)
+        self._draw_subPage(ai_game, mouse_pos)
+
+    def _draw_subPage(self, ai_game, mouse_pos):
         if ai_game.subPage == "no_save":
             self.noSavePopup.draw_popup(mouse_pos)
         elif ai_game.subPage == "change_user":

@@ -1,7 +1,7 @@
 import pygame
-from assists.text import ShortText
-from assists.calculate import Calculate
-from assists.buttons import Button
+from .text import ShortText
+from .calculate import Calculate
+from .buttons import Button
 
 
 class Slidebar:
@@ -17,11 +17,11 @@ class Slidebar:
         self.endNum = endNum
         self.startX = position[0]
         self.endX = position[0] + width
-        if startMsg == None:
+        if startMsg is None:
             self.startMsg = str(self.startNum)
         else:
             self.startMsg = startMsg
-        if endMsg == None:
+        if endMsg is None:
             self.endMsg = str(self.endNum)
         else:
             self.endMsg = endMsg
@@ -83,7 +83,7 @@ class Slidebar:
             (self.endX-self.startX)
         self.number = self.startNum + \
             (self.endNum - self.startNum) * self.ratio
-        if ndigits == None:
+        if ndigits is None:
             return self.number
         else:
             return round(self.number, ndigits)

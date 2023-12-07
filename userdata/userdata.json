@@ -1,5 +1,5 @@
 {
-    "chosenPlayer": "Dreamer_Leo",
+    "chosenPlayer": "Ddsadsa",
     "playerData": {
         "Dreamer_Leo": {
             "gameSettings": {
@@ -9,6 +9,15 @@
                 "FXVolume": 0.5
             },
             "highScore": 0
+        },
+        "Ddsadsa": {
+            "gameSettings": {
+                "background": "",
+                "gameFrame": 165.0,
+                "BGMVolume": 0.2986666666666667,
+                "FXVolume": 0.5
+            },
+            "highScore": 50313
         }
     }
 }
